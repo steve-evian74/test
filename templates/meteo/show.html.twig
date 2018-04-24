@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Meteo{% endblock %}
+
+{% block body %}
+    <h1>Meteo</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ meteo.id }}</td>
+            </tr>
+            <tr>
+                <th>Temps</th>
+                <td>{{ meteo.temps }}</td>
+            </tr>
+            <tr>
+                <th>Degres</th>
+                <td>{{ meteo.degres }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('meteo_index') }}">back to list</a>
+
+    <a href="{{ path('meteo_edit', {'id': meteo.id}) }}">edit</a>
+
+    {{ include('meteo/_delete_form.html.twig') }}
+{% endblock %}

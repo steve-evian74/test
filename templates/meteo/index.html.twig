@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Meteo index{% endblock %}
+
+{% block body %}
+    <h1>Meteo index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Temps</th>
+                <th>Degres</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for meteo in meteos %}
+            <tr>
+                <td>{{ meteo.id }}</td>
+                <td>{{ meteo.temps }}</td>
+                <td>{{ meteo.degres }}</td>
+                <td>
+                    <a href="{{ path('meteo_show', {'id': meteo.id}) }}">show</a>
+                    <a href="{{ path('meteo_edit', {'id': meteo.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('meteo_new') }}">Create new</a>
+{% endblock %}
